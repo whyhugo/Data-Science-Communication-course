@@ -1,0 +1,30 @@
+# MQTT Topics Organization for Taipei Metro Emergency Radar Project
+
+> NTNU 41247013S 王修佑 Hugo Wang
+
+## Overview
+In addition to sensor data, the project allows passengers to send their GPS location during an emergency. The MQTT topics are structured to handle both sensor data and user-reported GPS locations.
+
+## Topic Structure
+The MQTT topics are organized hierarchically as follows:
+- **sensor**: For sensor-related data.
+- **gps**: For GPS location data from passengers.
+- **location/parameterType**: Specifies the location and type of data.
+
+## Example Topics
+- **sensor/headCount/stationA**:
+  - For headcount sensors at Station A.
+- **sensor/smoke/stationB**:
+  - For smoke detectors at Station B.
+- **gps/emergency/userID**:
+  - For GPS data from users during an emergency. The `userID` can be a unique identifier for the passenger or device.
+
+## Usage Scenario
+- In an emergency, passengers can send their GPS location using the topic **gps/emergency/userID**. The data can include latitude, longitude, and possibly a timestamp.
+- This information can be used by emergency responders to locate individuals in need of assistance within the Taipei Metro system.
+
+## Future Expansion
+- **sensor/fire/stationC**: For fire detection systems in Station C.
+- **gps/nonEmergency/userID**: For non-emergency location sharing, if needed.
+
+This structure ensures that both sensor data and user-reported GPS locations are efficiently managed and monitored, enhancing the overall emergency response system in the Taipei Metro.
